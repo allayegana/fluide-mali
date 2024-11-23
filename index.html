@@ -15,6 +15,7 @@
             color: #333;
         }
 
+
         /* Navigation */
         header {
             background-color: #003366;
@@ -138,6 +139,27 @@
             gap: 1.5rem;
             padding: 2rem;
         }
+
+        .card-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            background-color: #003366;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card-btn:hover {
+            background-color: #FFD700;
+            transform: scale(1.05);
+        }
+
 
         .card {
             background-color: white;
@@ -289,7 +311,7 @@
                 <img src="img/djigui.webp" alt="Radio Djiguifa FM">
                 <h3>Radio Djiguifa FM</h3>
                  <p>104.5 MHZ</p>
-                <p>Une programmation riche dédiée à la région de Sikasso.</p>
+                <p>Une programmation riche dédiée au malienne.</p>
             </div>
             <div class="card">
                 <img src="img/mande.webp" alt="Radio Mande">
@@ -301,11 +323,13 @@
                 <img src="img/festi.webp" alt="Festival">
                 <h3>Festival Culturel</h3>
                 <p>Un rendez-vous annuel pour célébrer la culture malienne.</p>
+                <a href="festival.html" class="card-btn">En Savoir Plus</a>
             </div>
             <div class="card">
                 <img src="img/mark.webp" alt="Marketing">
                 <h3>Marketing</h3>
                 <p>Une équipe dédiée pour vos besoins en communication.</p>
+                <a href="services.html" class="card-btn">En Savoir Plus</a>
             </div>
             <div class="card">
                 <img src="img/tech.webp" alt="Technique">
