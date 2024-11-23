@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Fluide Mali</title>
+    <link rel="icon" type="img/png" href="img/logo.webp">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #003366;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+         nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.7rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Responsive Navigation */
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #003366;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+                gap: 0;
+            }
+
+            .menu a {
+                padding: 0.8rem 1.5rem;
+                text-align: left;
+                display: block;
+                width: 100%;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+                color: white;
+            }
+        }
+
+        /* Services Section */
+        #services {
+            margin-top: 120px;
+            padding: 2rem 1rem;
+            text-align: center;
+            background-color: #e3f2fd;
+        }
+
+        #services h2 {
+            color: #003366;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .service-card {
+                padding: 1rem;
+            }
+
+            .service-card i {
+                font-size: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-card {
+                padding: 0.8rem;
+            }
+
+            #services h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-card i {
+                font-size: 1.8rem;
+            }
+
+            .service-card h3 {
+                font-size: 0.9rem;
+            }
+
+            .service-card p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Fluide Mali Culture et Radios</div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="festival.html">Festival</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3>Radios Dynamiques</h3>
+                <p>
+                    Offrir une plateforme de diffusion unique pour la culture malienne et ouest-africaine.
+                    Nos radios mettent en avant des programmes variés, allant de la musique traditionnelle 
+                    aux débats d'actualité.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-music"></i>
+                <h3>Festivals Culturels</h3>
+                <p>
+                    Organiser des événements mémorables qui célèbrent la diversité culturelle, 
+                    en mettant en lumière la musique, la danse, et les traditions uniques de la région.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Marketing Personnalisé</h3>
+                <p>
+                    Offrir des stratégies de marketing innovantes et personnalisées, adaptées aux besoins 
+                    et au budget de chaque client. Que vous soyez une petite entreprise ou une grande marque, 
+                    nous développons des campagnes efficaces pour augmenter votre visibilité.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Publicité Adaptée</h3>
+                <p>
+                    Nous concevons des publicités ciblées qui correspondent à vos revenus et à votre audience 
+                    principale. Notre approche basée sur des données garantit une portée maximale et un impact 
+                    durable sur vos clients.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-laptop"></i>
+                <h3>Transformation Digitale</h3>
+                <p>
+                    Nous aidons les entreprises à s’adapter au monde numérique, en proposant des solutions telles 
+                    que la création de sites web modernes, la gestion de réseaux sociaux et le suivi de performances.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Consultation Stratégique</h3>
+                <p>
+                    Avec notre expertise, nous accompagnons les entreprises dans la définition et la mise en œuvre 
+                    de stratégies marketing et communication efficaces, visant à maximiser leur croissance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome for Icons -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

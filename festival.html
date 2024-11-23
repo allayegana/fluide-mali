@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/png" href="img/logo.webp">
+    <title>Festival Culturel - Fluide Mali</title>
+    <style>
+        /* Style global */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+    
+        /* Navigation */
+        header {
+            background-color: #003366;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+    
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+    
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+    
+        .menu li {
+            display: inline;
+        }
+    
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+    
+        .menu a:hover {
+            color: #FFD700;
+        }
+    
+        /* Mobile menu toggle */
+        .menu-icon {
+            display: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #003366;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+    
+            .menu.show {
+                display: flex;
+            }
+    
+            .menu li {
+                padding: 0.5rem;
+                text-align: center;
+            }
+    
+            .menu-icon {
+                display: block;
+            }
+        }
+    
+        #festival-description {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #00509E, #003366);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        #festival-description h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    
+        #festival-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 1rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+        }
+    
+        #festival-description p span {
+            font-weight: bold;
+            color: #FFD700;
+            text-decoration: underline;
+        }
+    
+        /* Grid de cartes */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+    
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+            animation: fadeIn 1s ease;
+        }
+    
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .card img {
+            width: 100%;
+            height: 280px; /* Ajustement pour mieux afficher les images */
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+    
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #003366;
+        }
+    
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 cartes par ligne pour tablettes */
+            }
+    
+            #festival-description h2 {
+                font-size: 2rem;
+            }
+    
+            #festival-description p {
+                font-size: 1.1rem;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 carte par ligne pour mobiles */
+            }
+        }
+    </style>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Fluide Mali</div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#festival-description">Description</a></li>
+                <li><a href="#row1">Événements</a></li>
+                <li><a href="#row2">Traditions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Description du Festival -->
+    <section id="festival-description">
+        <h2>Le Festival Culturel : Une Expérience Unique</h2>
+        <p>
+            Chaque année, au mois d'<span>octobre</span>, le <span>Festival Culturel</span> de Fluide Mali invite toutes les communautés du <span>Mali, du Burkina Faso et du Niger</span> à se rassembler pour célébrer la richesse de leurs cultures. Cet événement <span>gratuit</span>, ouvert à tous, exige des participants de porter des <span>tenues traditionnelles maliennes</span>, en hommage à la diversité culturelle.
+        </p>
+        <p>
+            Au programme : des <span>spectacles de danse</span>, de la <span>musique traditionnelle</span>, des <span>défilés de mode</span> et des <span>conférences</span> sur l'héritage technique et artistique de la région. Les innovations techniques des peuples AES (Afrique de l'Est et du Sud) sont également mises en lumière. Ensemble, vivons la diversité et la créativité africaines !
+        </p>
+    </section>
+
+
+
+    <!-- Grille des Événements -->
+    <section id="row1">
+        <h2 style="text-align:center; padding-top: 2rem;">Événements Majeurs</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="img/festi.webp" alt="Musique">
+                <h3>Musique Traditionnelle</h3>
+                <p>Découvrez les rythmes du Mali avec des instruments uniques comme le balafon et le kora.</p>
+            </div>
+            <div class="card">
+                <img src="img/habit.jpg" alt="Dance">
+                <h3>Danse Culturelle</h3>
+                <p>Participez à des spectacles de danse mettant en valeur les mouvements traditionnels.</p>
+            </div>
+            <div class="card">
+                <img src="img/tra-imag.jpg" alt="Défilé">
+                <h3>Défilés de Mode</h3>
+                <p>Admirez des créations inspirées par les traditions vestimentaires maliennes.</p>
+            </div>
+            <div class="card">
+                <img src="img/tradi.jpg" alt="Ateliers">
+                <h3>Ateliers</h3>
+                <p>Participez à des ateliers interactifs d'art et d'artisanat locaux.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="row2">
+        <h2 style="text-align:center; padding-top: 2rem;">Traditions et Techniques</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="img/tradi2.jpg" alt="Artisanat">
+                <h3>Artisanat</h3>
+                <p>Découvrez les talents des artisans locaux à travers des sculptures et poteries.</p>
+            </div>
+            <div class="card">
+                <img src="img/micro.jpg" alt="Conférence">
+                <h3>Conférences</h3>
+                <p>Participez à des débats sur le rôle de la culture dans l’avenir de l’Afrique.</p>
+            </div>
+            <!-- Nouvelle carte 1 -->
+            <div class="card">
+                <img src="img/culture.jpg" alt="Textile">
+                <h3>Textile Traditionnel</h3>
+                <p>Explorez les techniques de tissage et de teinture uniques de la région.</p>
+            </div>
+            <!-- Nouvelle carte 2 -->
+            <div class="card">
+                <img src="img/cusine.jpg" alt="Gastronomie">
+                <h3>Gastronomie</h3>
+                <p>Dégustez les saveurs authentiques des plats traditionnels maliens.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

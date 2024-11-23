@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/png" href="img/logo.webp">
+    <title>À Propos - Fluide Mali</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #003366;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Mobile menu toggle */
+        .menu-icon {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #003366;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu a {
+                padding: 0.5rem 0;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        /* About Section */
+        #about {
+            margin-top: 70px;
+            padding: 2rem 1rem;
+            text-align: center;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #003366;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #about p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 1rem auto;
+            max-width: 600px;
+        }
+
+        .founder-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 1.5rem auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #about p span {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Fluide Mali Culture</div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="festival.html">Festival</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>À Propos de Fluide Mali</h2>
+        <img src="img/dion.jpg" alt="Ibrahim Dion Coulibaly" class="founder-photo">
+        <p>
+            Fondé par <span>Ibrahim Dion Coulibaly</span>, Fluide Mali est le fruit de l'évolution de <span>Dion Communication</span>. Depuis ses débuts, Dion Communication s'est imposé comme un acteur incontournable dans la promotion des médias et de la culture au Mali.
+        </p>
+        <p>
+            Aujourd'hui, Fluide Mali réunit des radios dynamiques, des festivals culturels mémorables et des initiatives de marketing innovantes, tout en restant fidèle à ses racines : célébrer la richesse culturelle malienne et ouest-africaine.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 style="text-align:center; color: #003366; margin-top: 2rem;">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3>Radios Dynamiques</h3>
+                <p>Une plateforme pour diffuser la culture et l'actualité du Mali.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-music"></i>
+                <h3>Festivals Culturels</h3>
+                <p>Des événements qui célèbrent la musique, la danse et les traditions.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Marketing Innovant</h3>
+                <p>Des stratégies modernes pour mettre en valeur vos produits et services.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
