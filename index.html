@@ -249,6 +249,39 @@
             transform: scale(1.2);
             color: #FFD700;
         }
+        
+    #welcome-message {
+        display: none; /* Caché par défaut */
+        position: fixed;
+        top: 20px;
+        left: -100%; /* En dehors de l'écran à gauche */
+        transform: translateY(-50%);
+        background-color: #e3940a;
+        color: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-family: 'Arial', sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    #welcome-message.show {
+        display: block; /* Affiche le message */
+        left: 50%; /* Centre horizontal */
+        transform: translateX(-50%); /* Correction centrée */
+    }
+
+    #welcome-message.hide {
+        left: 120%; /* Sortie vers la droite */
+        transform: translateX(0);
+    }
+
+
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -266,6 +299,11 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div id="welcome-message" style="display: none;">
+                Bienvenue sur <strong>Fluide Mali</strong> ! Nous sommes ravis de vous accueillir.
+            </div>
+            
+            
         </nav>
     </header>
 
@@ -373,6 +411,33 @@
         hamburger.addEventListener('click', () => {
             menu.classList.toggle('active');
         });
+        
+    document.addEventListener('DOMContentLoaded', () => {
+        const welcomeMessage = document.getElementById('welcome-message');
+
+        // Vérifie si l'utilisateur est déjà venu
+        if (!localStorage.getItem('hasVisited')) {
+            // Ajoute la classe "show" pour afficher le message avec animation
+            setTimeout(() => {
+                welcomeMessage.style.display = 'block';
+                welcomeMessage.classList.add('show');
+            }, 500); // Petit délai pour un effet visuel
+
+            // Cache le message après 5 secondes
+            setTimeout(() => {
+                welcomeMessage.classList.add('hide');
+                setTimeout(() => {
+                    welcomeMessage.style.display = 'none';
+                }, 500); // Délai pour laisser l'animation se terminer
+            }, 5000);
+
+            // Marque l'utilisateur comme ayant visité
+            localStorage.setItem('hasVisited', 'true');
+        }
+    });
+
+
+
     </script>
 </body>
 </html>
