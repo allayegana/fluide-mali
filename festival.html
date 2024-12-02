@@ -94,14 +94,15 @@
         }
     
         #festival-description {
-            margin-top: 80px;
-            padding: 3rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, #00509E, #003366);
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    margin-top: 200px; /* Adjusted for the height of the header + sponsor logos */
+    padding: 3rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #00509E, #003366);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
     
         #festival-description h2 {
             font-size: 2rem;
@@ -188,6 +189,49 @@
                 transform: translateY(0);
             }
         }
+
+        #sponsor-logos {
+    position: fixed;
+    top: 80px; /* Below the header */
+    width: 100%;
+    height: 120px; /* Fixed height */
+    background-color: #003366;;
+    padding: 1rem 0;
+    z-index: 999;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#sponsor-logos h2 {
+    font-size: 1.2rem;
+    color:  #e0e0e0;;
+    margin-bottom: 0.5rem;
+}
+
+
+#logo-container {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+        /* Main content margin to avoid overlap with fixed sponsor section */
+        main {
+            margin-top: 200px; /* Adjust to the total height of header + sponsor section */
+        }
     
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -239,8 +283,13 @@
             Au programme : des <span>spectacles de danse</span>, de la <span>musique traditionnelle</span>, des <span>défilés de mode</span> et des <span>conférences</span> sur l'héritage technique et artistique de la région. Les innovations techniques des peuples AES (Afrique de l'Est et du Sud) sont également mises en lumière. Ensemble, vivons la diversité et la créativité africaines !
         </p>
     </section>
-
-
+    
+    <section id="sponsor-logos">
+        <h2>Nos Sponsors</h2>
+        <div id="logo-container">
+            <img src="img/amawai.jpg" alt="Sponsor 1">
+        </div>
+    </section>
 
     <!-- Grille des Événements -->
     <section id="row1">
@@ -389,6 +438,32 @@
             const menu = document.querySelector('.menu');
             menu.classList.toggle('show');
         }
+
+        const logos = [
+            "img/amawai.jpg",
+            "img/aswan.jpg",
+            "img/amblem.jpg",
+            "img/nbb.jpg",
+            "img/ajes.jpg",
+            "img/amaw.jpg",
+            "img/EM.jpg",
+            "img/ES.jpg",
+            "img/ES2.jpg",
+            "img/mj.jpg"
+
+
+        ];
+
+        let currentLogoIndex = 0;
+
+        function rotateLogos() {
+            const logoContainer = document.getElementById("logo-container").querySelector("img");
+            currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+            logoContainer.src = logos[currentLogoIndex];
+        }
+
+        // Change the logo every 2 seconds
+        setInterval(rotateLogos, 2000);
     </script>
 </body>
 </html>
