@@ -32,12 +32,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
+            
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-        }
+    font-weight: bold;
+    background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
 
         .menu {
             list-style: none;
@@ -66,32 +71,58 @@
             font-size: 2rem;
             cursor: pointer;
             color: white;
+            
         }
+
+        .logo .highlight {
+    color: #FFD700; /* Gold color for emphasis */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Add subtle hover effect */
+.logo:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    transition: transform 0.3s ease-in-out;
+}
 
         /* Mobile Navigation */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row; /* Keep logo and hamburger in the same row */
+        justify-content: space-between; /* Space between logo and hamburger */
+        align-items: center; /* Center-align logo and hamburger vertically */
+    }
 
-            .menu {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                background-color: #003366;
-                padding: 1rem 0;
-            }
+    .menu {
+        display: none; /* Hide menu initially */
+        flex-direction: column; /* Stack menu items vertically */
+        gap: 1rem;
+        width: 100%; /* Full width for dropdown */
+        background-color: #003366;
+        padding: 1rem 0;
+        position: absolute;
+        top: 100%; /* Position below the navbar */
+        left: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
 
-            .menu.active {
-                display: flex;
-            }
+    .menu.active {
+        display: flex; /* Show menu when active */
+    }
 
-            .hamburger {
-                display: block;
-            }
-        }
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
+    }
+    .logo {
+        font-size: 1.5rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
 
         /* Section d'accueil */
         #home {
@@ -290,7 +321,10 @@
     <!-- Navigation -->
     <header>
         <nav>
-            <div class="logo">Fluide Mali</div>
+            <div class="logo">
+                <span>Fluide</span> <span class="highlight">Mali</span>
+            </div>
+            
             <div class="hamburger">&#9776;</div>
             <ul class="menu">
                 <li><a href="#home">Accueil</a></li>
