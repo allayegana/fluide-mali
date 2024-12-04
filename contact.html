@@ -36,8 +36,13 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            color: white;
         }
 
         .menu {
@@ -59,6 +64,9 @@
 
         .menu-icon {
             display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
         }
 
         /* Contact Section */
@@ -115,9 +123,8 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            nav {
+                flex-wrap: wrap;
             }
 
             .menu {
@@ -138,6 +145,11 @@
             .menu-icon {
                 display: block;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -145,7 +157,10 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Fluide Mali Contact</div>
+            <div class="logo">
+                <span style="color: greenyellow;">Fluide</span>
+                <span style="color: orange;">Mali</span>
+            </div>
             <i class="menu-icon fas fa-bars" onclick="toggleMenu()"></i>
             <ul class="menu">
                 <li><a href="index.html">Accueil</a></li>
@@ -187,7 +202,6 @@
                     <a href="https://g.page/r/CX-2I-leZv_-EAI/review" target="_blank">Donnez votre avis</a>
                 </p>
             </div>
-            
         </div>
     </section>
 

@@ -34,8 +34,16 @@
         }
     
         .logo {
-            font-size: 1.8rem;
+                    font-size: 1.8rem;
             font-weight: bold;
+            background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 10px; /* Rounded edges */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+        .logo .highlight {
+            color: orange; /* Gold color for emphasis */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
         }
     
         .menu {
@@ -262,7 +270,9 @@
     <!-- Navigation -->
     <header>
         <nav>
-            <div class="logo">Fluide Mali <span>Culture</span></div>
+            <div class="logo">
+                <span style="color: greenyellow;">Fluide</span> <span style="color: orange;">Mali</span>
+            </div>
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <ul class="menu">
                 <li><a href="index.html">Accueil</a></li>

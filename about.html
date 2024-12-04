@@ -34,8 +34,20 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo span:first-child {
+            color: greenyellow;
+        }
+
+        .logo span:last-child {
+            color: orange;
         }
 
         .menu {
@@ -93,7 +105,7 @@
 
         /* About Section */
         #about {
-            margin-top: 70px;
+            margin-top: 100px;
             padding: 2rem 1rem;
             text-align: center;
             background-color: #e3f2fd;
@@ -201,7 +213,9 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">À Propos - Fluide Mali</div>
+            <div class="logo">
+                <span>Fluide</span> <span>Mali</span>
+            </div>
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <ul class="menu">
                 <li><a href="index.html">Accueil</a></li>

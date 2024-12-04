@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Fluide Mali</title>
-    <link rel="icon" type="img/png" href="img/logo2.jpg" type="image/x-icon">
+    <link rel="icon" type="image/png" href="img/logo2.jpg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         /* Global Styles */
@@ -24,20 +24,26 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1rem;
+            padding: 1rem 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-         nav {
+        nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.7rem;
+            justify-content: space-between; /* Align logo and icon at opposite ends */
+            align-items: center; /* Vertically aligns items */
+            padding: 0 1.7rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 10px; /* Rounded edges */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            display: flex;
+            align-items: center; /* Aligns text within the logo */
         }
 
         .menu {
@@ -62,16 +68,20 @@
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
+            color: white;
         }
 
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row; /* Keeps the logo and menu icon in a single row */
+            }
+
+            .menu-icon {
+                display: block;
             }
 
             .menu {
-                display: none;
+                display: none; /* Hidden initially */
                 flex-direction: column;
                 width: 100%;
                 background-color: #003366;
@@ -82,20 +92,15 @@
                 gap: 0;
             }
 
+            .menu.show {
+                display: flex;
+            }
+
             .menu a {
                 padding: 0.8rem 1.5rem;
                 text-align: left;
                 display: block;
                 width: 100%;
-            }
-
-            .menu.show {
-                display: flex;
-            }
-
-            .menu-icon {
-                display: block;
-                color: white;
             }
         }
 
@@ -169,6 +174,11 @@
                 font-size: 1rem;
             }
 
+            .logo {
+                font-size: 1.5rem;
+                padding: 0.4rem 0.8rem;
+            }
+
             .service-card p {
                 font-size: 0.9rem;
             }
@@ -206,7 +216,9 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Fluide Mali Services</div>
+            <div class="logo">
+                <span style="color: greenyellow;">Fluide</span> <span style="color: orange;">Mali -Services</span>
+            </div>
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <ul class="menu">
                 <li><a href="index.html">Accueil</a></li>
@@ -227,25 +239,20 @@
                 <h3>Radios Dynamiques</h3>
                 <p>
                     Offrir une plateforme de diffusion unique pour la culture malienne et ouest-africaine.
-                    Nos radios mettent en avant des programmes variés, allant de la musique traditionnelle 
-                    aux débats d'actualité.
                 </p>
             </div>
             <div class="service-card">
                 <i class="fas fa-music"></i>
                 <h3>Festivals Culturels</h3>
                 <p>
-                    Organiser des événements mémorables qui célèbrent la diversité culturelle, 
-                    en mettant en lumière la musique, la danse, et les traditions uniques de la région.
+                    Organiser des événements mémorables pour célébrer la diversité culturelle.
                 </p>
             </div>
             <div class="service-card">
                 <i class="fas fa-chart-line"></i>
                 <h3>Marketing Personnalisé</h3>
                 <p>
-                    Offrir des stratégies de marketing innovantes et personnalisées, adaptées aux besoins 
-                    et au budget de chaque client. Que vous soyez une petite entreprise ou une grande marque, 
-                    nous développons des campagnes efficaces pour augmenter votre visibilité.
+                    Offrir des stratégies de marketing innovantes adaptées à vos besoins.
                 </p>
             </div>
             <div class="service-card">
@@ -276,7 +283,7 @@
         </div>
     </section>
 
-    <!-- Font Awesome for Icons -->
+    <!-- JavaScript -->
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.menu');
