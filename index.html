@@ -34,15 +34,24 @@
             padding: 1rem 2rem;
             
         }
-
+        
         .logo {
             font-size: 1.8rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #00509E 0%, #003366 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
+            font-weight: bold;
+            background: linear-gradient(90deg, #00509E 0%, #003366 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .logo span:first-child {
+            color: greenyellow;
+        }
+
+        .logo span:last-child {
+            color: orange;
+        }
 
         .menu {
             list-style: none;
@@ -249,6 +258,30 @@
             }
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* Footer */
         footer {
             background-color: #003366;
@@ -327,10 +360,14 @@
     <!-- Navigation -->
     <header>
         <nav>
-            <div class="logo">
-                <span style="color: greenyellow;">Fluide</span> <span class="highlight">Mali</span>
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <img src="img/logo2.jpg" alt="Logo Fluide Mali">
+                </div>
+                <div class="logo">
+                    <span>Fluide</span> <span>Mali</span>
+                </div>
             </div>
-            
             <div class="hamburger">&#9776;</div>
             <ul class="menu">
                 <li><a href="#home">Accueil</a></li>
