@@ -351,6 +351,64 @@
         transform: translateX(0);
     }
 
+    .event-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.event-alert.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.event-content h3 {
+    font-size: 1.8rem; /* Taille plus grande */
+    color: #003366; /* Couleur plus professionnelle */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Effet d'ombre subtile */
+}
+
+.event-content p {
+    font-size: 1.1rem; /* Taille plus lisible */
+    color: #555; /* Gris doux pour éviter la fatigue visuelle */
+    line-height: 1.6; /* Espacement entre les lignes */
+    text-align: justify; /* Texte aligné des deux côtés */
+    margin-bottom: 1.5rem; /* Espacement sous le texte */
+}
+
+.event-content {
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Fond dégradé subtil */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+}
+
+
+.close-alert {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    color: red;
+}
+
 
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -405,6 +463,22 @@
             </div>
         </div>
     </section>
+    <div id="event-alert" class="event-alert">
+        <div class="event-content">
+            <button class="close-alert" onclick="closeEventAlert()">×</button>
+            <h3>Foire de Fin d'Année 2024</h3>
+            <p>
+                La Foire de Fin d'Année, un événement incontournable, se tient du 
+                <strong>12 décembre 2024 au 5 janvier 2025</strong> au FEBAK. 
+                L'ouverture officielle, qui s'est déroulée le 21 décembre 2024, a été marquée par la présence du Président de la Chambre de Commerce et d'Industrie du Mali.
+            </p>
+            <video controls width="100%">
+                <source src="video/event.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture des vidéos.
+            </video>
+        </div>
+    </div>
+    
     <section id="partners" style="margin-top: 2rem; text-align: center; background-color: #e3f2fd; padding: 2rem; border-radius: 8px;">
         <h2 style="color: #003366;">Nos Partenaires et Sponsors</h2>
         <p style="color: #555; font-size: 1.1rem; margin-bottom: 1.5rem;">
@@ -522,6 +596,27 @@
             localStorage.setItem('hasVisited', 'true');
         }
     });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const eventAlert = document.getElementById('event-alert');
+    const alertDismissedTimestamp = localStorage.getItem('eventAlertDismissedAt');
+    const eventEndDate = new Date('2025-01-05T23:59:59'); // Fin de l'événement
+
+    const currentDate = new Date();
+
+    // Vérifie si l'alerte a été fermée ou si la date est passée
+    if (!alertDismissedTimestamp && currentDate <= eventEndDate) {
+        eventAlert.classList.add('show');
+    }
+});
+
+function closeEventAlert() {
+    const eventAlert = document.getElementById('event-alert');
+    eventAlert.classList.remove('show');
+    // Marque l'alerte comme vue
+    localStorage.setItem('eventAlertDismissedAt', Date.now());
+}
 
 
 
