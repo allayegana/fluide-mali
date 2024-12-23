@@ -467,7 +467,7 @@
     left: 0; /* Commence à gauche */
     width: 100%; /* Prend toute la largeur de la page */
     color: #e3940a; /* Texte doré */
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     overflow: hidden; /* Cache le texte qui dépasse */
     white-space: nowrap; /* Empêche le retour à la ligne */
     height: 2.5rem; /* Hauteur fixe */
@@ -701,23 +701,40 @@
 
     document.addEventListener('DOMContentLoaded', () => {
     const eventAlert = document.getElementById('event-alert');
-    const alertDismissedTimestamp = localStorage.getItem('eventAlertDismissedAt');
     const eventEndDate = new Date('2025-01-05T23:59:59'); // Fin de l'événement
+    const alertInterval = 60000; // Affiche l'alerte toutes les 60 secondes (modifiable)
 
-    const currentDate = new Date();
+    const showAlert = () => {
+        const currentDate = new Date();
+        const alertDismissedTimestamp = localStorage.getItem('eventAlertDismissedAt');
 
-    // Vérifie si l'alerte a été fermée ou si la date est passée
-    if (!alertDismissedTimestamp && currentDate <= eventEndDate) {
-        eventAlert.classList.add('show');
-    }
+        // Vérifie si l'alerte est encore pertinente
+        if (currentDate <= eventEndDate) {
+            // Si aucune alerte n'a été fermée récemment ou si suffisamment de temps s'est écoulé
+            if (!alertDismissedTimestamp || currentDate - new Date(Number(alertDismissedTimestamp)) > alertInterval) {
+                eventAlert.classList.add('show');
+            }
+        } else {
+            // Si l'événement est terminé, on cache l'alerte définitivement
+            eventAlert.classList.remove('show');
+            clearInterval(alertIntervalId);
+        }
+    };
+
+    const closeEventAlert = () => {
+        eventAlert.classList.remove('show');
+        // Marque l'alerte comme vue
+        localStorage.setItem('eventAlertDismissedAt', Date.now());
+    };
+
+    // Ajoute un écouteur au bouton de fermeture
+    document.querySelector('.close-alert').addEventListener('click', closeEventAlert);
+
+    // Affiche l'alerte périodiquement
+    showAlert(); // Affiche immédiatement lors du chargement
+    const alertIntervalId = setInterval(showAlert, alertInterval);
 });
 
-function closeEventAlert() {
-    const eventAlert = document.getElementById('event-alert');
-    eventAlert.classList.remove('show');
-    // Marque l'alerte comme vue
-    localStorage.setItem('eventAlertDismissedAt', Date.now());
-}
 
 
 
